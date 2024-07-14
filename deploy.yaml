@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exam-deployment
+  labels:
+    app: website
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: website
+  template:
+    metadata:
+      labels:
+        app: website
+    spec:
+      containers:
+      - name: website
+        image: sivat06/devops-exam-image
+        ports:
+        - containerPort: 80
